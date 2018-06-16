@@ -1,0 +1,24 @@
+﻿@model  DataPlatformManagement.Controllers.GasMeterController.DeviceInfo
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddOrEdit", "GasMeter", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.Id)
+    <div class="form-group">
+        <div>
+            <p><image src="http://AdroitAPI.Aicloud.co.nz/Images/@Model.ImagePath.ToString().Split('_')[0]/@Model.ImagePath.ToString().Split('_')[1]" height=400 width=550 /></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MeterValue, new { @class = "control-lable" })
+        @Html.EditorFor(model => model.MeterValue, new { AllowHtmlAttribute = new { @class = "control-lable" } })
+        @Html.ValidationMessageFor(model => model.MeterValue)
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+}

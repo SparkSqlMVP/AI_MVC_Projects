@@ -1,0 +1,14 @@
+﻿@model  DataPlatformManagement.Controllers.GasMeterController.DeviceInfo
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("ImageView", "GasMeter", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.Id)
+    <div class="form-group">
+        <div>
+            <p><image src="http://AdroitAPI.Aicloud.co.nz/Images/@Model.ImagePath.ToString().Split('_')[0]/@Model.ImagePath.ToString().Split('_')[1]" height=400 width=550 /></p>
+        </div>
+    </div>
+}
